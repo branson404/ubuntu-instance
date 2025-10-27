@@ -26,3 +26,7 @@
 ## (You can specify other drivers like --driver=virtualbox or --driver=kvm2 if you have them installed.) Check Minikube Status.
 
     minikube status
+
+## Install appropriate kubectl
+
+    minikube kubectl -- get po -A
