@@ -30,3 +30,7 @@
 ## Install appropriate kubectl
 
     minikube kubectl -- get po -A
+
+## Install kubectl using snap(Individual):
+
+    sudo snap install kubectl --classic
