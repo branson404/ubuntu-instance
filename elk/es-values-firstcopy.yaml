@@ -1,0 +1,17 @@
+USER-SUPPLIED VALUES:
+clusterHealthCheckParams: wait_for_status=yellow&timeout=1s
+esJavaOpts: -Xmx768m -Xms768m
+minimumMasterNodes: 1
+replicas: 1
+resources:
+  limits:
+    cpu: 1000m
+    memory: 1.5Gi
+  requests:
+    cpu: 500m
+    memory: 1Gi
+xpack:
+  ml:
+    enabled: false
+esPlugins:
+  - repository-s3

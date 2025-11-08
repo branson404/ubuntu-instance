@@ -1,0 +1,40 @@
+grafana:
+  env:
+    GF_SMTP_ENABLED: "true"
+    GF_SMTP_HOST: "smtp.gmail.com:587"
+    GF_SMTP_USER: "mskshafi07@gmail.com"
+    GF_SMTP_PASSWORD: "wqpj hqvt qnpc xgvv"
+    GF_SMTP_FROM_ADDRESS: "mskshafi07@gmail.com"
+    GF_SMTP_FROM_NAME: "PROD-Grafana"
+    GF_SMTP_SKIP_VERIFY: "false"
+    GF_SMTP_EHLO_IDENTITY: ""
+    GF_SMTP_STARTTLS_POLICY: ""
+
+  grafana.ini:
+    smtp:
+      enabled: true
+      host: ${GF_SMTP_HOST}
+      user: ${GF_SMTP_USER}
+      password: ${GF_SMTP_PASSWORD}
+      cert_file:
+      key_file:
+      from_address: ${GF_SMTP_FROM_ADDRESS}
+      from_name: ${GF_SMTP_FROM_NAME}
+      skip_verify: ${GF_SMTP_SKIP_VERIFY}
+      ehlo_identity: ${GF_SMTP_EHLO_IDENTITY}
+      startTLS_policy: ${GF_SMTP_STARTTLS_POLICY}
+
+alertmanager:
+  alertmanagerSpec:
+    # ✅ Select Alertmanager config via matching labels
+    alertmanagerConfigSelector:
+      matchLabels:
+        release: monitoring
+
+    # ✅ Enable high availability
+    replicas: 2
+
+    # ✅ Disable namespace matchers for flexibility
+    alertmanagerConfigMatcherStrategy:
+      type: None
+
